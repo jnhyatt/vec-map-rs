@@ -1,6 +1,6 @@
 [package]
 name = "vector-map"
-version = "1.0.2"
+version = "1.1.0"
 keywords = ["map", "structures", "vec-map"]
 authors = ["Pierre Avital <pierre.avital@gmail.com>"]
 edition = "2018"
@@ -9,11 +9,18 @@ readme = "README.md"
 description = "VecMap<K, V>: a Linear Search with Map API"
 repository = "https://github.com/p-avital/vec-map-rs.git"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [features]
 nightly = []
 serde_impl = ["dep:serde"]
 enable_contracts = []
+
+# The Slice API lets you peek into the underlying pair-of-slices structure of the VecMap
+#
+# By enabling this flag, you are making your codebase dependent on `VecMap` remaining a
+# pair of vectors instead of the alternative vector of pairs.
+#
+# While there's no plan to ever switch to a vector of pairs, this flag just makes this explicit.
+expose_pair_of_slices = []
 
 [dependencies]
 serde = { version = "1.0", optional = true }

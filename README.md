@@ -22,6 +22,3 @@ While it is very similar (after all, we share the same API), there is one key di
 Considering that the most common operation for both these implementations is the linear search for a key, `VecMap` has the advantage of packing its keys tighter, requiring fewer cache requests for the same number of keys tested.
 
 This makes `VecMap` slightly faster than `LinearMap` for some operations, especially when `V` is much bigger than `K`. However, you should still test both for your own application to see which is more suited to your application.
-
-# You use contracts, do I pay for them?
-Not unless you specifically enable them, using this crate's `enable_contracts` feature. Since most of the contracts need to check if the map contains a key, they would otherwise each run their own key search, which is not a very efficient thing to do.

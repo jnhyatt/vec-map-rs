@@ -218,6 +218,7 @@ impl<K, V> VecMap<K, V> {
     /// Returns a slice containing all keys in the map.
     ///
     /// The order is arbitrary and may change when items are inserted or removed.
+    #[cfg(feature = "expose_pair_of_slices")]
     pub fn keys_as_slice(&self) -> &[K] {
         &self.keys
     }
@@ -225,6 +226,7 @@ impl<K, V> VecMap<K, V> {
     /// Returns a slice containing all values in the map.
     ///
     /// The order is arbitrary and may change when items are inserted or removed.
+    #[cfg(feature = "expose_pair_of_slices")]
     pub fn values_as_slice(&self) -> &[V] {
         &self.values
     }
@@ -232,6 +234,7 @@ impl<K, V> VecMap<K, V> {
     /// Returns a mutable slice containing all values in the map.
     ///
     /// The order is arbitrary and may change when items are inserted or removed.
+    #[cfg(feature = "expose_pair_of_slices")]
     pub fn values_as_slice_mut(&mut self) -> &mut [V] {
         &mut self.values
     }
